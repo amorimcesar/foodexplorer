@@ -1,5 +1,8 @@
 <p align="center">
-  <h1 align="center">Food Explorer - Rocketseat Desafio Final :rocket: </a></h1>
+  <h1 align="center"><a href="#">Food Explorer - Rocketseat Desafio Final :rocket: </a></h1>
+</p>
+<p align="center">
+  <img width="550" height="99" src="https://github.com/amorimcesar/foodexplorer/blob/main/img/header.png?raw=true">
 </p>
 
 <p align="center">
@@ -24,7 +27,7 @@ ___
 ## 🎨 Layout
 Uma prévia do projeto final em formato desktop é vista na imagem abaixo:
 ![IM2](https://github.com/amorimcesar/foodexplorer/blob/main/img/initial_page.png)
-![IM3](https://github.com/amorimcesar/foodexplorer/blob/main/img/roll_menu.png)
+![IM2](https://github.com/amorimcesar/foodexplorer/blob/main/img/roll_menu.png)
 ___
 
 ## 🛠 Tecnologias
