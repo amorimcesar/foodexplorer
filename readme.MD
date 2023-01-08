@@ -23,8 +23,8 @@ ___
 
 ## 🎨 Layout
 Uma prévia do projeto final em formato desktop é vista na imagem abaixo:
-<a href="">
-<a href="">
+![IM2](https://github.com/amorimcesar/foodexplorer/blob/main/img/initial_page.png)
+![IM2](https://github.com/amorimcesar/foodexplorer/blob/main/img/roll_menu.png)
 ___
 
 ## 🛠 Tecnologias
