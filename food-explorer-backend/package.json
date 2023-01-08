@@ -1,0 +1,26 @@
+{
+  "name": "food-explorer-backend",
+  "version": "1.0.0",
+  "description": "API desenvolida para ultimo desafio do EXPLORER ROCKETSEAT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "keywords": [],
+  "author": "César Amorim",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "js": "^0.1.0",
+    "knex": "^2.4.0",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
