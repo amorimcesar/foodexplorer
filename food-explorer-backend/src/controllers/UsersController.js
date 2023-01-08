@@ -1,7 +1,7 @@
 // Hash, App Error and SQLite Connection Import
 const { hash, compare } = require("bcryptjs");
 const AppError = require("../utils/AppError");
-const sqliteConnection = require("../databse/sqlite")
+const sqliteConnection = require("../database/sqlite")
 
 class UsersController {
     async create(req, res){
