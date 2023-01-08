@@ -5,10 +5,6 @@
   <img width="550" height="99" src="https://github.com/amorimcesar/foodexplorer/blob/main/img/header.png?raw=true">
 </p>
 
-<p align="center">
-  <img width="550" height="99" src="">
-</p>
-
 Este será o resultado do desafio final do Explorer, o Food Explorer.
 <br>
 Nele irei realizar a criação do FrontEnd e do BackEnd completo da aplicação.
