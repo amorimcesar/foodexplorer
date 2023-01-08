@@ -1,7 +1,4 @@
 <p align="center">
-  <h1 align="center"><a href="#">Food Explorer - Rocketseat Desafio Final :rocket: </a></h1>
-</p>
-<p align="center">
   <img width="550" height="99" src="https://github.com/amorimcesar/foodexplorer/blob/main/img/header.png?raw=true">
 </p>
 
