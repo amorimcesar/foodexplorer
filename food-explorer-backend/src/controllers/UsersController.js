@@ -1,4 +1,3 @@
-// Hash, App Error and SQLite Connection Import
 const { hash, compare } = require("bcryptjs");
 const AppError = require("../utils/AppError");
 const sqliteConnection = require("../database/sqlite")
@@ -6,12 +5,10 @@ const sqliteConnection = require("../database/sqlite")
 class UsersController {
     async create(req, res){
 
-      // Capturing Body Parameters
       const {name, email, password} = req.body;
 
-      // Connection with Database
       const database = await sqliteConnection();
-      //Verifications
+
       const checkUserExists = await database.get("SELECT * FROM users WHERE email = (?)", [email]
       );
 
@@ -31,10 +28,8 @@ class UsersController {
         throw new AppError('Erro: A senha deve ter pelo menos 6 dígitos!');
       } 
 
-      // Password Cryptography
       const hashedPassword =await hash(password, 8);
 
-      // Inserting user into the database
       await database.run("INSERT INTO users (name, email, password) VALUES (?,?,?)",
       [name, email, hashedPassword]
       );
