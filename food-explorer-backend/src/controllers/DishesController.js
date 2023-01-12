@@ -45,6 +45,7 @@ class DishesController{
   async index(req, res) {
 
     const { title, ingredients } = req.query;
+    console.log(title, ingredients)
 
     let dishes;
 
