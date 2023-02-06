@@ -1,91 +1,88 @@
-const { hash, compare } = require("bcryptjs");
-const AppError = require("../utils/AppError");
-const sqliteConnection = require("../database/sqlite")
+const { hash, compare } = require('bcryptjs');
+
+const AppError = require('../utils/AppError');
+
+const sqliteConnection = require('../database/sqlite');
 
 class UsersController {
-    async create(req, res){
+    async create(request, response) {
+        const { name, email, password } = request.body;
 
-      const {name, email, password} = req.body;
+        const database = await sqliteConnection();
+        const checkUserExists = await database.get('SELECT * FROM users WHERE email = (?)', [email])
 
-      const database = await sqliteConnection();
+        if(checkUserExists) {
+            throw new AppError('Erro: Este e-mail já está em uso!');
+        }
 
-      const checkUserExists = await database.get("SELECT * FROM users WHERE email = (?)", [email]
-      );
+        if(name.length < 3) {
+            throw new AppError('Erro: Digite um nome válido!');
+        }
 
-      if(checkUserExists){
-        throw new AppError("Este e-mail já esta em uso.");
-      }
+        if(!email.includes("@", ".") || !email.includes(".")) {
+            throw new AppError('Erro: Digite um email válido!');
+        }
 
-      if(name.length < 3) {
-        throw new AppError('Erro: Digite um nome válido!');
-      }
+        if(password.length < 6) {
+            throw new AppError('Erro: A senha deve ter pelo menos 6 dígitos!');
+        }
+        
+        const hashedPassword = await hash(password, 8);
 
-      if(!email.includes("@", ".") || !email.includes(".")) {
-        throw new AppError('Erro: Digite um email válido!');
-      }
+        await database.run(
+            'INSERT INTO users (name, email, password ) VALUES (?, ?, ?)',
+            [name, email, hashedPassword]
+        );
 
-      if(password.length < 6) {
-        throw new AppError('Erro: A senha deve ter pelo menos 6 dígitos!');
-      } 
-
-      const hashedPassword =await hash(password, 8);
-
-      await database.run("INSERT INTO users (name, email, password) VALUES (?,?,?)",
-      [name, email, hashedPassword]
-      );
-
-      return res.status(201).json();
+        return response.status(201).json();
     }
-    async update(req, res) {
-      // Capturing Body Parameters and ID Parameters
-      const {name, email, password, old_password } = req.body;
-      const {id} = req.params;
 
-      // Connection with Database
-      const database = await sqliteConnection();
-      const user = await database.get("SELECT * FROM users WHERE id = (?)", [id]);
+    async update(request, response) {
+        const {name, email, password, old_password } = request.body;
+        const user_id = request.user.id
 
-      // Verifications
-      if (!user) {
-          throw new AppError("Usuário não encontrado");
-      }
+        const database = await sqliteConnection();
+        const user = await database.get("SELECT * FROM users WHERE id = (?)", [user_id]);
 
-      const userWithUpdatedEmail = await database.get("SELECT * FROM users WHERE email = (?)", [email]);
+        if (!user) {
+            throw new AppError("Usuário não encontrado");
+        }
 
-      if(userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
-          throw new AppError("Este e-mail já está em uso.");
-      }
+        const userWithUpdatedEmail = await database.get("SELECT * FROM users WHERE email = (?)", [email]);
 
-      user.name = name ?? user.name;
-      user.email = email ?? user.email;
+        if(userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
+            throw new AppError("Este e-mail já está em uso.");
+        }
 
-      if (password && !old_password) {
-          throw new AppError("Você precisa informar a senha antiga para definir uma nova senha");
-      }
+        user.name = name ?? user.name;
+        user.email = email ?? user.email;
 
-      if (password && old_password) {
-          const checkOldPassword = await compare(old_password, user.password);
+        if (password && !old_password) {
+            throw new AppError("Você precisa informar a senha antiga para definir a nova senha");
+        }
 
-          if (!checkOldPassword) {
-              throw new AppError("A senha antiga não confere.");
-          }
+        if (password && old_password) {
+            const checkOldPassword = await compare(old_password, user.password);
 
-          user.password = await hash(password, 8);
-      }
+            if (!checkOldPassword) {
+                throw new AppError("A senha antiga não confere.");
+            }
 
-      // Inserting the infos into the database
-      await database.run(`
-          UPDATE users SET
-          name = ?,
-          email = ?,
-          password = ?,
-          updated_at = DATETIME("now")
-          WHERE id = ?`,
-          [user.name, user.email, user.password, id]
-      );
+            user.password = await hash(password, 8);
+        }
 
-      return res.json();
-  }
+        await database.run(`
+            UPDATE users SET
+            name = ?,
+            email = ?,
+            password = ?,
+            updated_at = DATETIME("now")
+            WHERE id = ?`,
+            [user.name, user.email, user.password, user_id]
+        );
+
+        return response.status(201).json();
+    }
 }
 
 module.exports = UsersController;
