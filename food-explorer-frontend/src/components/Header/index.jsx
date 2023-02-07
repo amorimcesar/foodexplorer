@@ -10,7 +10,7 @@ import logo from '../../assets/logo.svg';
 
 import { useCart } from '../../hooks/cart';
 
-export function Header({ theme, toggleTheme, search, favoritesFilter }) {
+export function Header({search, favoritesFilter }) {
     const { user } = useAuth()
     const { signOut } = useAuth();
 
@@ -54,6 +54,7 @@ export function Header({ theme, toggleTheme, search, favoritesFilter }) {
                             />
                         </label>
                     </Search>
+                    
 
                     {
                         user.isAdmin ?
