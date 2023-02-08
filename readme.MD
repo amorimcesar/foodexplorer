@@ -41,6 +41,8 @@ The main technologies used in creating this project were:
 - [React Router Dom](https://react-icons.github.io/react-icons/)
 
 ___
+[The final result you can see here] (https://foodexplorer23.netlify.app/)
+
 🔑 Do you want to see how the application works as viewed by the Admin or User? 
 <br>
 🔑 Use the following account:
@@ -56,3 +58,10 @@ As a user, you can access with these credentials or create your own:
 email: user@foodexplorer.com
 <br>
 password: 123456
+
+___
+Note: As it is hosted on a free service, the BackEnd "hibernates" after 15 minutes of inactivity.
+<br>
+If you are trying to access the site and the BackEnd is not responding, just wait, as it will be "initializing" the services.
+<br>
+This step may take up to 1 minute or more, depending on the load on Render servers.
