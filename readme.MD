@@ -2,30 +2,28 @@
   <img width="550" height="99" src="https://github.com/amorimcesar/foodexplorer/blob/main/img/header.png?raw=true">
 </p>
 
-Este será o resultado do desafio final do Explorer, o Food Explorer.
+This will be the result of the final challenge of the Explorer, the Food Explorer.
 <br>
-Nele irei realizar a criação do FrontEnd e do BackEnd completo da aplicação.
+In it, I completed the creation of the FrontEnd and BackEnd of the application.
 
 ___
 
 ## 💻 Sobre
-O Food Explorer é uma aplicação web de um restaurante. O usuário após se cadastrar estará apto a criar os pedidos e acompanhar seu status. Há ainda uma customização de perfil, filtragem de favoritos, campo de busca e seção de contato com o restaurante. O carrinho é 100% funcional e o usuário poderá escolher entre 2 formas de pagamento (cartão ou Pix).
+The Food Explorer is a restaurant web application. After registering, the user will be able to create orders and track their status. There is also a profile customization, favorite filtering, search field, and contact section with the restaurant. The cart is 100% functional and the user can choose between 2 payment methods (Credit Card or Pix)
 <br>
-O Administrador pode criar/editar/remover os pratos da forma que desejar. Ele poderá ainda alterar o status dos pedidos, de acordo com a linha de preparo dos mesmos na cozinha. Este status será imediatamente atualizado na tela dos consumidores.
+The administrator can create/edit/remove dishes as they wish. They can also change the status of the orders, according to their preparation line in the kitchen. This status will be immediately updated on the consumers' screen.
 <br>
-Pretendo adicionar ao  projeto "extras", como a possibilidade de mudança entre tema escuro ou claro, edição do perfil do usuário, alguns efeitos visuais.
 
 ___
 
 ## 🎨 Layout
-Uma prévia do projeto final em formato desktop é vista na imagem abaixo:
+A preview of the final project in desktop format is seen in the image below:
 ![IM2](https://github.com/amorimcesar/foodexplorer/blob/main/img/initial_page.png)
-![IM2](https://github.com/amorimcesar/foodexplorer/blob/main/img/roll_menu.png)
 ___
 
 ## 🛠 Tecnologias
 
-A principio as seguintes tecnologias serão empregadas na criação deste projeto:
+The main technologies used in creating this project were:
 
 - [ReactJs](https://reactjs.org)
 - [Node.js](https://nodejs.org/en/)
@@ -43,4 +41,13 @@ A principio as seguintes tecnologias serão empregadas na criação deste projet
 - [React Router Dom](https://react-icons.github.io/react-icons/)
 
 ___
-Obs.: Projeto em construção
+🔑 Do you want to see how the application works as viewed by the Admin or User? 
+🔑 Use the following account:
+
+As an administrator:
+email: admin@foodexplorer.com
+password: 123456
+
+As a user, you can access with these credentials or create your own:
+email: user@foodexplorer.com
+password: 123456
