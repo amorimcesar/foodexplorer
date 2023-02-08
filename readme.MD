@@ -42,12 +42,17 @@ The main technologies used in creating this project were:
 
 ___
 🔑 Do you want to see how the application works as viewed by the Admin or User? 
+<br>
 🔑 Use the following account:
 
 As an administrator:
+<br>
 email: admin@foodexplorer.com
+<br>
 password: 123456
 
 As a user, you can access with these credentials or create your own:
+<br>
 email: user@foodexplorer.com
+<br>
 password: 123456
